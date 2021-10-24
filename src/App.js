@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from "./route/Home";
+import Stats from "./route/Stats";
+import Buteurs from "./route/Buteurs";
+import Passeurs from "./route/Passeurs";
+import BestPlayers from "./route/BestPlayers";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <BrowserRouter>
+            <Switch>
+                <Route path="/" exact component="Home">
+                    <Home />
+                </Route>
+                <Route path="/stats" exact component="Home">
+                    <Stats />
+                </Route>
+                <Route path="/scorers" exact component="Home">
+                    <Buteurs />
+                </Route>
+                <Route path="/assists" exact component="Home">
+                    <Passeurs />
+                </Route>
+                <Route path="/best-players" exact component="Home">
+                    <BestPlayers />
+                </Route>
+            </Switch>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
